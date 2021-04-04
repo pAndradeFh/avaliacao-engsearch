@@ -1,15 +1,17 @@
 #include <stdio.h>
+#include <assert.h>
 
 int ConcatRemove(char *s, char *t, int k)
 {
     int i = 0, size_s = 0, size_t = 0;
+    // get the common size
     while (s[i] != '\0' && t[i] != '\0' && s[i] == t[i])
     {
         i++;
         size_s++;
         size_t++;
     }
-
+    // get the size of each string, separately
     while (s[size_s] != '\0')
     {
         size_s++;
@@ -39,7 +41,7 @@ int ConcatRemove(char *s, char *t, int k)
             // Case we can remove all the strings and reuse it
             return 1;
         else
-            return 1;
+            return 0;
     }
 }
 
@@ -52,4 +54,11 @@ int main(int args)
     scanf("%i", &k);
     result = ConcatRemove(s, t, k);
     printf(result == 0 ? "false" : "true");
+
+    //Lets test the problem
+    int response_controlled;
+    response_controlled = ConcatRemove("tab", "tab", 7);
+    assert(response_controlled == 1);
+    response_controlled = ConcatRemove("tab", "tab", 8);
+    assert(response_controlled == 0);
 }
