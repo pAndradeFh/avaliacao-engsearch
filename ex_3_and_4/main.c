@@ -35,8 +35,11 @@ int ConcatRemove(char *s, char *t, int k)
         // In this case, we need k - (min_s + min_t) to be an even number
         if ((k - (min_s + min_t)) % 2 == 0)
             return 1;
+        else if ((k - size_s - (min_s + min_t)) >= 0 && (k - size_s - (min_s + min_t)) % 2 == 0)
+            // Case we can remove all the strings and reuse it
+            return 1;
         else
-            return 0;
+            return 1;
     }
 }
 
