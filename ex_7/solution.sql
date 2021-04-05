@@ -1,0 +1,1 @@
+SELECT DISTINCT "name" FROM (select * from dogs UNION select * from cats)

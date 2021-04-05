@@ -7,5 +7,5 @@ int main(int args)
     scanf("%s", input);
     while (input[aux] != '\0')
         aux++;
-    printf("%i", aux)
+    printf("%i", aux);
 }
